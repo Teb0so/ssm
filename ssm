@@ -1,0 +1,19 @@
+#!/bin/env bash
+
+session_select() {
+    sessions=("$HOME"/.ssm/*.session)
+
+    for i in "${!sessions[@]}"; do
+        name="${sessions[i]##*/}"
+        printf '%d - %s\n' "$(( $i + 1))" "${name%.session}"
+    done
+
+    choice=0
+    read choice
+    source "${sessions[choice - 1]}"
+}
+
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+    session_select
+fi
+
