@@ -10,8 +10,8 @@ session_select() {
 
     local choice=0
     read choice
-    source "${sessions[choice]}"
     echo ${sessions[choice]} > "$HOME"/.ssm_last
+    source "${sessions[choice]}"
 }
 
 session_last() {
