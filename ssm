@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+# Simple session manager
+# See more information at: https://github.com/Teb0so/ssm
+
 session_select() {
     sessions=("$HOME"/.ssm/*.session)
 
